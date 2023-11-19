@@ -1,0 +1,15 @@
+source_system,source_type,target_type
+mssql,char,string
+mssql,bit,bool
+mssql,bigint,int64
+mssql,datetime,timestamp
+mssql,date,date
+mssql,decimal,numeric
+mssql,int,int64
+mssql,numeric,numeric
+mssql,nvarchar,string
+mssql,smallint,int64
+mssql,tinyint,int64 
+mssql,uniqueidentifier,string
+mssql,varchar,string
+teradata,char,string

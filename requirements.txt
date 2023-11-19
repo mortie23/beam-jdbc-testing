@@ -68,3 +68,4 @@ tzlocal==5.1
 urllib3==2.0.6
 zstandard==0.21.0
 ipykernel
+sqlparse

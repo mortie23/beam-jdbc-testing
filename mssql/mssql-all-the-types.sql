@@ -121,24 +121,26 @@ create table
 
 -- Test Row Coder
 -- All the bad types that do not work with the pipeline
-drop table if exists cwms.test_bad_types go
+drop table if exists cwms.test_bad_types 
+go
 ;
 
 create table
   cwms.test_bad_types (
     test_bit bit
-    --, test_date date
-    --, test_datetime datetime
-    --, test_tinyint tinyint
-  ) go
+    , test_date date
+    , test_datetime datetime
+    , test_tinyint tinyint
+  ) 
+go
 insert into
   cwms.test_bad_types
 values
   (
     1
-    --, getdate()
-    --, getdate()
-    --, 1
+    , cast(getdate() as date)
+    , getdate()
+    , 1
   )
 ;
 
@@ -147,5 +149,10 @@ drop table cwms.test_bad_types
 ;
 
 create table
-  cwms.test_bad_types (test_bit boolean, test_date date, test_datetime datetime, test_tinyint int64)
+  cwms.test_bad_types (
+    test_bit boolean
+  , test_date date
+  , test_datetime timestamp
+  , test_tinyint int64
+)
 ;
