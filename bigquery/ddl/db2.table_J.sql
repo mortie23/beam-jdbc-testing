@@ -1,0 +1,46 @@
+create table db2.table_J (
+column_PR_FC string
+,column_GI_KZ string
+,column_LD_EO string
+,column_CW_DL string
+,column_NH_XI string
+,column_KE_CY string
+,column_WN_DA string
+,column_SH_SH string
+,column_MX_KK int64
+,column_MV_YZ int64
+,column_OC_RG string
+,column_BO_PN string
+,column_CA_TF string
+,column_EQ_VV int64
+,column_UL_IX int64
+,column_TV_CK int64
+,column_HK_LD date
+,column_IQ_DV int64
+,column_HW_NX int64
+,column_HY_CK string
+,column_CO_JB int64
+,column_DC_UP int64
+,column_DW_MG int64
+,column_CS_LZ int64
+,column_EW_RO int64
+,column_CE_RG int64
+,column_LW_MH string
+,column_NP_AM string
+,column_BU_DV string
+,column_YX_TO string
+,column_SB_ZO int64
+,column_RP_PA int64
+,column_OH_KF string
+,column_RH_GR string
+,column_CA_AK string
+,column_YA_PM string
+,column_CR_UK string
+,column_IQ_PC date
+,column_CZ_BL string
+,column_IO_UQ string
+,column_WS_SS string
+,column_LX_QM string
+,column_LD_IL string
+)
+;
