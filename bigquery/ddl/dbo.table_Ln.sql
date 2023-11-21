@@ -1,0 +1,45 @@
+create table dbo.table_Ln (
+column_tm_ie_XF string
+,column_D_ae_IQ string
+,column_rI_oc_EH string
+,column__uI_KX string
+,column_Nm_is_WP string
+,column_m_un_YT string
+,column_fi_ae_JN timestamp
+,column_ae_ei_FH string
+,column_fe_ae_IG timestamp
+,column_ub_tm_KT string
+,column_iP_ee_DJ numeric
+,column_ea_eo_PV numeric
+,column_I_li_OR string
+,column_si_rc_JS timestamp
+,column__I_DP string
+,column_in_ei_YR string
+,column_ns_om_MS string
+,column_eO_ra_PB timestamp
+,column_eB_ra_XV string
+,column_eO_pa_GV timestamp
+,column_eB_pa_BQ string
+,column_Tp_nu_SB string
+,column_ec_tm_ZG string
+,column_ie_rc_PX string
+,column_lt_ac_JA string
+,column_tv_ne_BC string
+,column_ey_eo_EG string
+,column_tS_ea_EV string
+,column_ro_cn_ZU string
+,column_e_ee_SD bool
+,column_tA_ea_AF numeric
+,column_ae_B7_QP timestamp
+,column_Pn_oa_MX numeric
+,column_OC_li_SX string
+,column_Do_rR_FD string
+,column_De_rR_SO string
+,column_d_ok_SH bool
+,column_Dm_rR_CZ numeric
+,column_dr_eo_TG string
+,column_rP_rm_MA numeric
+,column_Dr_rR_OC numeric
+,column_lt_BR_FM string
+)
+;
