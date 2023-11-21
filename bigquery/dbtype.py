@@ -1,7 +1,52 @@
 import pandas as pd
 
 
-def td_ddl_full_type(
+def object_schema(
+    filename: str,
+    db_type: str,
+) -> pd.DataFrame:
+    """Read in an extract from the source system data dictionary (DBC/INFORMATION_SCHEMA)
+
+    Args:
+        filename (str): the name of the file with the schema extract
+        db_type (str): the type of database (td or mssql)
+
+    Returns:
+        pd.DataFrame: a conformed dataframe of the schema
+    """
+    df = pd.read_csv(filename, keep_default_na=False)
+    # Column conforming
+    if db_type == "teradata":
+        df["ColumnType"] = df["ColumnType"].str.strip()
+        df = df.astype(
+            {
+                "ColumnLength": str,
+                "DecimalTotalDigits": str,
+                "DecimalFractionalDigits": str,
+            }
+        )
+    if db_type == "mssql":
+        column_name_mapping = {
+            "TABLE_SCHEMA": "DatabaseName",
+            "TABLE_NAME": "TableName",
+            "COLUMN_NAME": "ColumnName",
+            "DATA_TYPE": "ColumnType",
+            "CHARACTER_MAXIMUM_LENGTH": "ColumnLength",
+            "NUMERIC_PRECISION": "DecimalTotalDigits",
+            "NUMERIC_SCALE": "DecimalFractionalDigits",
+        }
+        df = df.rename(columns=column_name_mapping)
+        df = df.astype(
+            {
+                "ColumnLength": str,
+                "DecimalTotalDigits": str,
+                "DecimalFractionalDigits": str,
+            }
+        )
+    return df
+
+
+def teradata_ddl_full_type(
     ColumnType: str,
     ColumnLength: int,
     DecimalTotalDigits: int,
@@ -121,7 +166,7 @@ def td_ddl_full_type(
         return "NUMBER(" + DecimalTotalDigits + "," + DecimalFractionalDigits + ")"
 
 
-def td_type(
+def teradata_type(
     ColumnType: str,
 ) -> str:
     """Generate a basic column type from Teradata DBC data dictionary
@@ -210,7 +255,7 @@ def td_type(
 
 def bq_ddl(
     df: pd.DataFrame,
-    td_type_mapping: pd.DataFrame,
+    type_mapping: pd.DataFrame,
 ) -> str:
     """Generate the DDL for a BigQuery table from metadata dataframe
 
@@ -224,7 +269,7 @@ def bq_ddl(
     ddl = "create table " + df["DatabaseName"][0] + "." + df["TableName"][0] + " (\n"
     bq_rows = []
     for index, row in df.iterrows():
-        bq_type = td_type_mapping[td_type_mapping["source_type"] == row["TdType"]][
+        bq_type = type_mapping[type_mapping["source_type"] == row["source_type"]][
             "target_type"
         ]
         bq_rows.append(row["ColumnName"] + " " + bq_type.values[0])
