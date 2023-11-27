@@ -1,6 +1,4 @@
-/*
-MS SQL Server testing tables
- */
+-- SQL Server: testing tables
 -- Working types
 -- the columns that are commented out do not work in the pipeline with no extra settings
 drop table if exists cwms.test_working_types go
@@ -60,7 +58,7 @@ from
   mortimer_dev.cwms.test_working_types
 ;
 
--- All the types
+-- SQL Server: All the types
 -- A table with all the types that errors out when trying the pipeline
 drop table if exists cwms.test_types go
 create table
@@ -99,8 +97,8 @@ values
   )
 ;
 
--- BigQuery 
--- A target table in BigQuery to test moving data from SQL Server to BigQuery using a Dataflow template
+-- BigQuery: A target table in BigQuery 
+-- Test moving data from SQL Server to BigQuery using a Dataflow template
 create table
   cwms.test_types (
     test_char string
@@ -119,8 +117,7 @@ create table
   )
 ;
 
--- Test Row Coder
--- All the bad types that do not work with the pipeline
+-- SQL Server: Test all the bad types
 drop table if exists cwms.test_bad_types 
 go
 ;
@@ -144,7 +141,39 @@ values
   )
 ;
 
--- BQ empty
+-- SQL Server: A test of just date
+drop table if exists cwms.test_date
+;
+create table
+  cwms.test_date (
+    test_date date
+  ) 
+go
+insert into
+  cwms.test_date
+values
+  (
+    cast(getdate() as date)
+  )
+;
+
+-- SQL Server: A test of just bit
+drop table if exists cwms.test_bit
+;
+create table
+  cwms.test_bit (
+    test_bit bit
+  ) 
+go
+insert into
+  cwms.test_bit
+values
+  (
+    cast(getdate() as date)
+  )
+;
+
+-- BigQuery: Empty target table for subset of bad types
 drop table cwms.test_bad_types
 ;
 
