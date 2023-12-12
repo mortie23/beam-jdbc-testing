@@ -2,6 +2,10 @@ import os
 from dotenv import load_dotenv
 import apache_beam as beam
 from apache_beam.io.jdbc import ReadFromJdbc
+from apache_beam.typehints.schemas import MillisInstant
+from apache_beam.typehints.schemas import LogicalType
+
+LogicalType.register_logical_type(MillisInstant)
 
 load_dotenv()
 MSSQL_PASSWORD = os.getenv("MSSQL_PASSWORD")

@@ -2,6 +2,28 @@ import os
 from dotenv import load_dotenv
 import apache_beam as beam
 from apache_beam.io.jdbc import ReadFromJdbc
+from apache_beam.typehints.schemas import LogicalType
+
+
+@LogicalType.register_logical_type
+class bit_type(LogicalType):
+    def __init__(self, LogicalType):
+        self.LogicalType = LogicalType
+
+    @classmethod
+    def urn(cls):
+        return "beam:logical_type:javasdk_bit:v1"
+
+    @classmethod
+    def language_type(cls):
+        return bool
+
+    def to_language_type(self, value):
+        return bool(value)
+
+    def to_representation_type(self, value):
+        return bool(value)
+
 
 load_dotenv()
 MSSQL_PASSWORD = os.getenv("MSSQL_PASSWORD")
