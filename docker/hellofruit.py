@@ -15,7 +15,7 @@ def run(
     beam_args: list[str] = None,
 ) -> None:
     """Build and run the pipeline."""
-    options = PipelineOptions(beam_args, save_main_session=True, streaming=True)
+    options = PipelineOptions(beam_args, save_main_session=True)
 
     with beam.Pipeline(options=options) as pipeline:
         pCollection = pipeline | "Create fruit data" >> beam.Create(
@@ -24,7 +24,7 @@ def run(
                 {"name": "Banana", "test_number": 2},
                 {"name": "Apple", "test_number": 3},
                 {"name": "Mango", "test_number": 4},
-                {"name": "ORange", "test_number": 5},
+                {"name": "Orange", "test_number": 5},
             ]
         )
         # Output the results into BigQuery table.
