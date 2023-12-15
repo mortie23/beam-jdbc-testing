@@ -77,12 +77,6 @@ Running a Dataflow job using a built flex template and Docker container
 
 [README run](README-run.md)
 
-## Workflow
-
-Deploying the job as a workflow
-
-[README workflow](README-workflow.md)
-
 ## Notes
 
 This documents the extra steps of building the Docker image locally and pushing it to a container registry that can be required depending on your setup in GCP.
@@ -109,6 +103,7 @@ DEBUG: https://storage.googleapis.com:443 "GET /storage/v1/b/<project_id>_cloudb
 }
 ```
 
-Reasons could include 
+Reasons could include:
+
 - maybe you have a restricted VPC that does not allow services outside a particular region
-- maybe the access granted to you as a Data Engineer does not allow for Storage bucket creation
+- maybe the access granted to you as a _Data Engineer_ does not allow for _Storage bucket_ creation
