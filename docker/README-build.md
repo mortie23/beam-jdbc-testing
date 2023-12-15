@@ -72,7 +72,7 @@ Container Spec:
 
 ### Using the gcloud CLI
 
-This method will do the build and push as well as create the flex template JSON file. However it will not successfully run in this environment. Kept here for reference.
+This method will do the build and push as well as create the flex template JSON file. However in certain GCP setups it may not run. It is kept here for reference.
 
 ```sh
 gcloud dataflow flex-template build "gs://<storage_bucket>/dataflow/flex/hellofruit.json" \
