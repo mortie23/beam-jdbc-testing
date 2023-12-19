@@ -1,0 +1,26 @@
+{
+  "name": "Load Teradata table to BigQuery",
+  "description": "Hello fruit Python flex template.",
+  "parameters": [
+    {
+      "name": "table_name",
+      "label": "Name of table used for both source and target.",
+      "helpText": "Name of table used for both source Teradata table and target BigQuery table.",
+      "isOptional": false,
+      "regexes": ["^[a-zA-Z_]*$"]
+    },
+    {
+      "name": "schema_name",
+      "label": "Name of schema used for both source and target.",
+      "helpText": "Name of schema used for both source Teradata database table and target BigQuery dataset.",
+      "isOptional": false,
+      "regexes": ["^[a-zA-Z_]*$"]
+    },
+    {
+      "name": "prjid",
+      "label": "The project ID",
+      "helpText": "The project ID",
+      "isOptional": false
+    }
+  ]
+}
