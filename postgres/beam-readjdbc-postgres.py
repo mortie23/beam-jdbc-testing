@@ -9,13 +9,14 @@ from apache_beam.io.jdbc import ReadFromJdbc
 load_dotenv()
 PG_PASSWORD = os.getenv("PG_PASSWORD")
 PG_HOSTNAME = os.getenv("PG_HOSTNAME")
+print(PG_HOSTNAME)
 
 with beam.Pipeline() as p:
     result = (
         p
         | "Read from jdbc"
         >> ReadFromJdbc(
-            table_name="mortimer_nfl.sanfran",
+            table_name="mortimer_nfl.game_type",
             driver_class_name="org.postgresql.Driver",
             jdbc_url=f"jdbc:postgresql://{PG_HOSTNAME}:5432/mortimer_dev",
             username="postgres",

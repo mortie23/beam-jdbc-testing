@@ -6,7 +6,7 @@
       "name": "output_table",
       "label": "BigQuery output table name.",
       "helpText": "Name of the BigQuery output table name.",
-      "isOptional": true,
+      "isOptional": false,
       "regexes": ["([^:]+:)?[^.]+[.].+"]
     }
   ]
